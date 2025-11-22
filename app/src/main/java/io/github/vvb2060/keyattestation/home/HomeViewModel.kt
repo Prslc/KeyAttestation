@@ -67,6 +67,12 @@ class HomeViewModel(
             sp.edit { putBoolean("prefer_include_props", value) }
         }
 
+    var preferHideSerialNumber = sp.getBoolean("prefer_hide_serialnumber", false)
+        set(value) {
+            field = value
+            sp.edit { putBoolean("prefer_hide_serialnumber", value) }
+        }
+
     var preferShizuku = false
         set(value) {
             field = value

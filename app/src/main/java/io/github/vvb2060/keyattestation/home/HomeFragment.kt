@@ -199,6 +199,11 @@ class HomeFragment : AppFragment(), HomeAdapter.Listener, MenuProvider {
         val status = !item.isChecked
         item.isChecked = status
         when (item.itemId) {
+            R.id.menu_hide_serialnumber -> {
+                viewModel.preferHideSerialNumber = status
+                adapter.hideSerialNumber = status
+                viewModel.load()
+            }
             R.id.menu_use_shizuku -> {
                 viewModel.preferShizuku = status
                 viewModel.load()

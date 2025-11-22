@@ -176,6 +176,7 @@ open class CommonItemViewHolder<T>(itemView: View, binding: HomeCommonItemBindin
                     }
                 }
 
+
                 override fun onBind() {
                     val iconRes: Int?
                     val colorAttr: Int?
@@ -205,17 +206,23 @@ open class CommonItemViewHolder<T>(itemView: View, binding: HomeCommonItemBindin
                         colorAttr?.let { imageTintList = context.theme.resolveColorStateList(it) }
                     }
 
+                    val hideSerialNumber = (adapter as HomeAdapter).hideSerialNumber
+
                     val sb = StringBuilder()
                     val cert = data.cert
                     val res = context.resources
-                    sb.append(res.getString(R.string.cert_subject))
+
+                    if (!hideSerialNumber) {
+                        sb.append(res.getString(R.string.cert_subject))
                             .append(cert.subjectDN)
                             .append("\n")
-                            .append(res.getString(R.string.cert_not_before))
-                            .append(AuthorizationList.formatDate(cert.notBefore))
-                            .append("\n")
-                            .append(res.getString(R.string.cert_not_after))
-                            .append(AuthorizationList.formatDate(cert.notAfter))
+                    }
+
+                    sb.append(res.getString(R.string.cert_not_before))
+                        .append(AuthorizationList.formatDate(cert.notBefore))
+                        .append("\n")
+                        .append(res.getString(R.string.cert_not_after))
+                        .append(AuthorizationList.formatDate(cert.notAfter))
 
                     data.provisioningInfo?.apply {
                         certsIssued?.let {

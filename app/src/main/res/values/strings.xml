@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Key Attestation</string>
+    <string name="hide_serialnumber">Hide Serialnumber</string>
     <string name="use_shizuku">Use Shizuku</string>
     <string name="use_sak">Use Knox attestation</string>
     <string name="use_strongbox">Use StrongBox</string>

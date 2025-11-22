@@ -12,7 +12,7 @@ import io.github.vvb2060.keyattestation.repository.BaseData
 import io.github.vvb2060.keyattestation.repository.RemoteProvisioningData
 import rikka.recyclerview.IdBasedRecyclerViewAdapter
 
-class HomeAdapter(listener: Listener) : IdBasedRecyclerViewAdapter() {
+class HomeAdapter(listener: Listener, var hideSerialNumber: Boolean = false) : IdBasedRecyclerViewAdapter() {
 
     interface Listener {
         fun onCommonDataClick(data: Data)
